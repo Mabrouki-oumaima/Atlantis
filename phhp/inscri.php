@@ -14,22 +14,24 @@ $result =$cnx->query("select * from personne where CIN='$cin'",PDO::FETCH_ASSOC)
 $i=$result->rowCount();
 if($i>0)
 {
-  echo "<script>alert('existe déja')</script>";
-  //header('location:C:\xampp\htdocs\atlantis\inscri.html');
-  //$cnx=null;
+  echo "<html><script>alert('existe déja')</script></html>";
+  echo "<script>window.location.href='../inscri.html'</script>";
+
 }else {
   $cnx = new PDO("mysql:host=$host;dbname=$database",$user,$password);
   //cryptage mdp
-  //echo $mdp;
-  password_hash(string $mdp, string|int|null $algo, array $options = []): string;
-  $sql = "INSERT INTO personne (CIN,Nom,Prenom,Date_naiss,Email,Password) values ('$cin','$nom','$prenom','$date','$mail','$mdp')";
+  $hashed_password= password_hash($mdp,PASSWORD_DEFAULT);
+  //var_dump($hashed_password);
+  $sql = "INSERT INTO personne (CIN,Nom,Prenom,Date_naiss,Email,Password) values ('$cin','$nom','$prenom','$date','$mail','$hashed_password')";
   $cnx->prepare($sql);
   $resultat = $cnx->exec($sql) or die(print_r($Cnx->errorInfo(), true));
   echo $resultat;
   if ($resultat > 0) {
     $_SESSION['full-name']= $nom;
     $_SESSION['prenom']= $prenom;
-    header('location:../index.html');
+
+    echo "<html><script>alert('Bienvenue')</script></html>";
+    echo "<script>window.location.href='../welcome.html'</script>";
   }
   else {
     echo "non ajouté";
