@@ -96,9 +96,9 @@
     </form>
     <!-- END: header -->
 
-    <section class="probootstrap-slider flexslider probootstrap-inner">
+
         <ul class="slides">
-            <li style="background-image: url(img/slider_1.jpg);" class="overlay">
+            <li style="background-image: url(img/grey.jpg);" class="overlay">
 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
@@ -116,174 +116,31 @@
 $dsn = 'mysql:dbname=piscine;host=localhost';
 $user = 'root';
 $password = '';
-$pdo = new PDO($dsn, $user, $password);
+$options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8");
+$pdo = new PDO($dsn, $user, $password,$options);
 
 $req = "select * from piscine_tab where id between 1 and 6";
 $stmt = $pdo->prepare($req);
 $stmt->execute();
 $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
-echo "<pre>";
-print_r($piscine);
+
 ?>
-
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-    <section class="probootstrap-section">
-
-            <div class="row">
-
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="probootstrap-room">
-                        <a href="#"><img src="img/img_4.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></a>
-                        <div class="text">
-                            <h3>Classic Room</h3>
-                            <p>Starting from <strong>$29.00/Night</strong></p>
-                            <div class="post-meta mb30">
-                                <ul>
-                                    <li><span class="review-rate">4.7</span> <i class="icon-star"></i> 252 Reviews</li>
-                                    <li><i class="icon-user2"></i> 3 Guests</li>
-                                </ul>
-                            </div>
-                            <p><a href="#" class="btn btn-primary" role="button">Reserve now for $29.00</a></p>
-                        </div>
+<section class="probootstrap-section">
+        <div class="row">
+                    <?php foreach($piscine as $p) : ?>
+                <div class="col-md-4 ">
+                    <div class="card m-2 w-50">
+                        <img src="img/<?= $p['image'] ?>" class="card-img-top" alt="iamge">
+                        <div class="card-body">
+                            <h5 class="card-title"><?=$p['libelle'] ?></h5>
+                            <p class="card-text"><?=$p['description'];?></p>
+                            <a href="#" class="btn btn-primary">plus de détails</a>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="probootstrap-room">
-                        <a href="#"><img src="img/img_1.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></a>
-                        <div class="text">
-                            <h3>Grand Deluxe Room</h3>
-                            <p>Starting from <strong>$29.00/Night</strong></p>
-                            <div class="post-meta mb30">
-                                <ul>
-                                    <li><span class="review-rate">4.7</span> <i class="icon-star"></i> 252 Reviews</li>
-                                    <li><i class="icon-user2"></i> 3 Guests</li>
-                                </ul>
-                            </div>
-                            <p><a href="#" class="btn btn-primary" role="button">Reserve now for $29.00</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="probootstrap-room">
-                        <a href="#"><img src="img/img_2.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></a>
-                        <div class="text">
-                            <h3>Ultra Superior Room</h3>
-                            <p>Starting from <strong>$29.00/Night</strong></p>
-                            <div class="post-meta mb30">
-                                <ul>
-                                    <li><span class="review-rate">4.7</span> <i class="icon-star"></i> 252 Reviews</li>
-                                    <li><i class="icon-user2"></i> 3 Guests</li>
-                                </ul>
-                            </div>
-                            <p><a href="#" class="btn btn-primary" role="button">Reserve now for $29.00</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="probootstrap-room">
-                        <a href="#"><img src="img/img_5.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></a>
-                        <div class="text">
-                            <h3>Grand Deluxe Room</h3>
-                            <p>Starting from <strong>$29.00/Night</strong></p>
-                            <div class="post-meta mb30">
-                                <ul>
-                                    <li><span class="review-rate">4.7</span> <i class="icon-star"></i> 252 Reviews</li>
-                                    <li><i class="icon-user2"></i> 3 Guests</li>
-                                </ul>
-                            </div>
-                            <p><a href="#" class="btn btn-primary" role="button">Reserve now for $29.00</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="probootstrap-room">
-                        <a href="#"><img src="img/img_6.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></a>
-                        <div class="text">
-                            <h3>Ultra Superior Room</h3>
-                            <p>Starting from <strong>$29.00/Night</strong></p>
-                            <div class="post-meta mb30">
-                                <ul>
-                                    <li><span class="review-rate">4.7</span> <i class="icon-star"></i> 252 Reviews</li>
-                                    <li><i class="icon-user2"></i> 3 Guests</li>
-                                </ul>
-                            </div>
-                            <p><a href="#" class="btn btn-primary" role="button">Reserve now for $29.00</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="probootstrap-room">
-                        <a href="#"><img src="img/img_7.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></a>
-                        <div class="text">
-                            <h3>Presidential Room</h3>
-                            <p>Starting from <strong>$29.00/Night</strong></p>
-                            <div class="post-meta mb30">
-                                <ul>
-                                    <li><span class="review-rate">4.7</span> <i class="icon-star"></i> 252 Reviews</li>
-                                    <li><i class="icon-user2"></i> 3 Guests</li>
-                                </ul>
-                            </div>
-                            <p><a href="#" class="btn btn-primary" role="button">Reserve now for $29.00</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2>Why Choose Us?</h2>
-                    <p class="mb50"><img src="img/curve.svg" class="svg" alt="Free HTML5 Bootstrap Template"></p>
-                </div>
-                <div class="col-md-4">
-                    <div class="service left-icon left-icon-sm probootstrap-animate">
-                        <div class="icon">
-                            <i class="icon-check"></i>
-                        </div>
-                        <div class="text">
-                            <h3>1+ Million Hotel Rooms</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service left-icon left-icon-sm probootstrap-animate">
-                        <div class="icon">
-                            <i class="icon-check"></i>
-                        </div>
-                        <div class="text">
-                            <h3>Food &amp; Drinks</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service left-icon left-icon-sm probootstrap-animate">
-                        <div class="icon">
-                            <i class="icon-check"></i>
-                        </div>
-                        <div class="text">
-                            <h3>Airport Taxi</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section>
+                <?php endforeach; ?>
+        </div>
+</section>
     <section class="probootstrap-section probootstrap-section-dark">
 
             <div class="row mb30">
