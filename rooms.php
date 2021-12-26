@@ -23,9 +23,9 @@
 
 <body>
 
-    <!-- START: header -->
+ <!-- START: header -->
 
-    <header role="banner" class="probootstrap-header">
+ <header role="banner" class="probootstrap-header">
         <!-- <div class="container"> -->
         <div class="row">
             <a href="index.html" class="probootstrap-logo visible-xs"><img src="img/logo_sm.png" class="hires" width="120" height="33" alt="Free Bootstrap Template by uicookies.com"></a>
@@ -35,16 +35,21 @@
 
             <nav role="navigation" class="probootstrap-nav hidden-xs">
                 <ul class="probootstrap-main-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li class="active"><a href="rooms.php">Our Rooms</a></li>
                     <li class="hidden-xs probootstrap-logo-center">
                         <a href="index.html"><img src="img/logo_md.png" class="hires" width="181" height="50" alt="Free Bootstrap Template by uicookies.com"></a>
                     </li>
-                    <li><a href="reservation.html">Reservation</a></li>
+                    <li class="active"><a href="index.html">Acceuil</a></li>
+
+                    <li><a href="rooms.php">Nos piscines</a></li>
+
+                    <!--li><a href="reservation.html">Reservation</a></li-->
                     <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">à propos</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a class="btn btn-primary" href="inscri.html" role="button">S'inscrire</a></li>
+                    <li><a class="btn btn-primary" href="login.html" role="button">Se connecter</a></li>
                 </ul>
+
                 <div class="extra-text visible-xs">
                     <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
                     <h5>Connect With Us</h5>
@@ -52,12 +57,43 @@
                         <li><a href="#"><i class="icon-twitter"></i></a></li>
                         <li><a href="#"><i class="icon-facebook2"></i></a></li>
                         <li><a href="#"><i class="icon-instagram2"></i></a></li>
+
                     </ul>
+
                 </div>
             </nav>
+
         </div>
         <!-- </div> -->
     </header>
+    <form id="booking-form" class="booking-form" method="POST">
+        <div class="form-group">
+            <div class="form-destination">
+                <label for="destination">Region</label>
+                <input type="text" id="destination" name="Region" placeholder="E.Hammamet" />
+            </div>
+            <div class="form-date-from form-icon">
+                <label for="date_from">Date</label>
+                <input type="date" id="date_from" class="date_from" placeholder="Pick a date" />
+                <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+            </div>
+            <div class="form-surf">
+                <label>Surface</label>
+                <input type="text" id="surf_from" class="surf_from" placeholder="100" />
+                <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+            </div>
+
+            <div class="form-quantity">
+                <label for="quantity">Nombre</label>
+                <span class="modify-qty plus" onClick="Tang()"><i class="zmdi zmdi-chevron-up"></i></span>
+                <input type="number" name="quantity" id="quantity" value="0" min="0" class="nput-text qty text">
+                <span class="modify-qty minus" onClick="Giam()"><i class="zmdi zmdi-chevron-down"></i></span>
+            </div>
+            <div class="form-submit">
+                <input type="submit" id="submit" class="submit" value="rechercher" />
+            </div>
+        </div>
+    </form>
     <!-- END: header -->
 
     <section class="probootstrap-slider flexslider probootstrap-inner">
