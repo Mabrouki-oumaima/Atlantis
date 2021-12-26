@@ -37,7 +37,7 @@
                 <ul class="probootstrap-main-nav">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li class="active"><a href="rooms1.php">Our Rooms</a></li>
+                    <li class="active"><a href="rooms.php">Our Rooms</a></li>
                     <li class="hidden-xs probootstrap-logo-center">
                         <a href="index.html"><img src="img/logo_md.png" class="hires" width="181" height="50" alt="Free Bootstrap Template by uicookies.com"></a>
                     </li>
