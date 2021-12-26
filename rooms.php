@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>les piscine</title>
+    <title>Nos piscines</title>
     <meta name="description" content="Free Bootstrap Theme by uicookies.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -20,7 +20,7 @@
       <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
 </head>
-
+<?php ob_start(); ?>
 <body>
 
  <!-- START: header -->
@@ -99,13 +99,11 @@
     <section class="probootstrap-slider flexslider probootstrap-inner">
         <ul class="slides">
             <li style="background-image: url(img/slider_1.jpg);" class="overlay">
-                <div class="container">
+
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="probootstrap-slider-text text-center">
-                                <p><img src="img/curve_white.svg" class="seperator probootstrap-animate" alt="Free HTML5 Bootstrap Template"></p>
-                                <h1 class="probootstrap-heading probootstrap-animate">Best Rooms</h1>
-                                <div class="probootstrap-animate probootstrap-sub-wrap">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</div>
+                                <h1 class="probootstrap-heading probootstrap-animate">Nos piscines</h1>
                             </div>
                         </div>
                     </div>
@@ -113,9 +111,33 @@
             </li>
         </ul>
     </section>
+<?php
+/* Connexion à une base MySQL avec l'invocation de pilote */
+$dsn = 'mysql:dbname=piscine;host=localhost';
+$user = 'root';
+$password = '';
+$pdo = new PDO($dsn, $user, $password);
+
+$req = "select * from piscine_tab where id between 1 and 6";
+$stmt = $pdo->prepare($req);
+$stmt->execute();
+$piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
+echo "<pre>";
+print_r($piscine);
+?>
+
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 
     <section class="probootstrap-section">
-        <div class="container">
+
             <div class="row">
 
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -234,7 +256,6 @@
                         <div class="text">
                             <h3>1+ Million Hotel Rooms</h3>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -246,7 +267,6 @@
                         <div class="text">
                             <h3>Food &amp; Drinks</h3>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -258,7 +278,6 @@
                         <div class="text">
                             <h3>Airport Taxi</h3>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -266,7 +285,7 @@
         </div>
     </section>
     <section class="probootstrap-section probootstrap-section-dark">
-        <div class="container">
+
             <div class="row mb30">
                 <div class="col-md-8 col-md-offset-2 probootstrap-section-heading text-center">
                     <h2>Explore our Services</h2>
@@ -283,7 +302,6 @@
                         <div class="text">
                             <h3>1+ Million Hotel Rooms</h3>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -295,7 +313,6 @@
                         <div class="text">
                             <h3>Food &amp; Drinks</h3>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -307,7 +324,6 @@
                         <div class="text">
                             <h3>Airport Taxi</h3>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -329,55 +345,33 @@
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
                     </div>
                 </div>
-                <p><a href="#" class="link-with-icon white">Learn More <i class=" icon-chevron-right"></i></a></p>
             </div>
         </div>
     </section>
 
     <!-- START: footer -->
     <footer role="contentinfo" class="probootstrap-footer">
-        <div class="container">
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="probootstrap-footer-widget">
                         <p class="mt40"><img src="img/logo_sm.png" class="hires" width="120" height="33" alt="Free HTML5 Bootstrap Template by uicookies.com"></p>
                         <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                        <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="probootstrap-footer-widget">
-                        <h3>Blog</h3>
+
                         <ul class="probootstrap-blog-list">
                             <li>
-                                <a href="#">
-                                    <figure class="probootstrap-image"><img src="img/img_1.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                    <div class="probootstrap-text">
-                                        <h4>River named Duden flows</h4>
-                                        <span class="meta">August 2, 2017</span>
-                                        <p>A small river named Duden flows by their place</p>
-                                    </div>
-                                </a>
+
+
                             </li>
                             <li>
-                                <a href="#">
-                                    <figure class="probootstrap-image"><img src="img/img_2.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                    <div class="probootstrap-text">
-                                        <h4>River named Duden flows</h4>
-                                        <span class="meta">August 2, 2017</span>
-                                        <p>A small river named Duden flows by their place</p>
-                                    </div>
-                                </a>
+
                             </li>
                             <li>
-                                <a href="#">
-                                    <figure class="probootstrap-image"><img src="img/img_3.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                    <div class="probootstrap-text">
-                                        <h4>River named Duden flows</h4>
-                                        <span class="meta">August 2, 2017</span>
-                                        <p>A small river named Duden flows by their place</p>
-                                    </div>
-                                </a>
+
                             </li>
                         </ul>
                     </div>
@@ -401,9 +395,7 @@
                         <li><a href=""><i class="icon-facebook"></i></a></li>
                         <li><a href=""><i class="icon-instagram2"></i></a></li>
                     </ul>
-                    <p>
-                        <small>&copy; 2017 <a href="https://uicookies.com/" target="_blank">uiCookies:Atlantis</a>. All Rights Reserved. <br> Designed &amp; Developed by <a href="https://uicookies.com/" target="_blank">uicookies.com</a> Demo Images: Unsplash.com &amp; Pexels.com</small>
-                    </p>
+                    
 
                 </div>
             </div>
