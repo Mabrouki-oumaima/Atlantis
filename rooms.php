@@ -38,9 +38,9 @@
                     <li class="hidden-xs probootstrap-logo-center">
                         <a href="index.html"><img src="img/logo_md.png" class="hires" width="181" height="50" alt="Free Bootstrap Template by uicookies.com"></a>
                     </li>
-                    <li class="active"><a href="index.html">Acceuil</a></li>
+                    <li><a href="index.html">Acceuil</a></li>
 
-                    <li><a href="rooms.php">Nos piscines</a></li>
+                    <li class="active"><a href="rooms.php">Nos piscines</a></li>
 
                     <!--li><a href="reservation.html">Reservation</a></li-->
                     <li><a href="blog.html">Blog</a></li>
@@ -128,18 +128,18 @@ $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <section class="probootstrap-section">
         <div class="row">
                     <?php foreach($piscine as $p) : ?>
-                <div class="col-md-4 ">
+                        <div class="col-md-4 col-sm-4 col-xs-1">
                     <div class="card m-2 w-50">
-                        <img src="img/<?= $p['image'] ?>" class="card-img-top" alt="iamge">
+                        <img src="<?= $p['image'] ?>" class="img-responsive" alt="iamge" style="width: 10cm; height:5cm">
                         <div class="card-body">
-                            <h5 class="card-title"><?=$p['libelle'] ?></h5>
+                            <h5 class="card-title" id="lib"><?=$p['libelle'] ?></h5>
                             <p class="card-text"><?=$p['description'];?></p>
-                            <a href="#" class="btn btn-primary">plus de détails</a>
+                            <a href="piscine_page.php" class="btn btn-primary">plus de détails</a>
+                            <h1 class="card-title"></h1>
                     </div>
                 </div>
         </div>
-                <?php endforeach; ?>
-        </div>
+                <?php endforeach;?>
 </section>
     <section class="probootstrap-section probootstrap-section-dark">
 
