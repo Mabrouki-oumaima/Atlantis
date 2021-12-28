@@ -119,26 +119,34 @@ $password = '';
 $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8");
 $pdo = new PDO($dsn, $user, $password,$options);
 
+
 $req = "select * from piscine_tab where id between 1 and 6";
 $stmt = $pdo->prepare($req);
 $stmt->execute();
 $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
+session_start();
+
+
 
 ?>
+
 <section class="probootstrap-section">
         <div class="row">
                     <?php foreach($piscine as $p) : ?>
+                    <form action="piscine_page.php" method="post">
                         <div class="col-md-4 col-sm-4 col-xs-1">
                     <div class="card m-2 w-50">
                         <img src="<?= $p['image'] ?>" class="img-responsive" alt="iamge" style="width: 10cm; height:5cm">
                         <div class="card-body">
-                            <h5 class="card-title" id="lib"><?=$p['libelle'] ?></h5>
+                            <label for="libelle1"><h5 class="card-title" id="libelle" name = "libelle2"><?= $p['libelle']?></h5></label>
                             <p class="card-text"><?=$p['description'];?></p>
-                            <a href="piscine_page.php" class="btn btn-primary">plus de détails</a>
+                            <button type="submit" class="btn btn-primary" name="detail">plus de détails</button>
+                            <input type='hidden' name='id' value='<?=$p['id'];?>'>
                             <h1 class="card-title"></h1>
                     </div>
                 </div>
         </div>
+                    </form>
                 <?php endforeach;?>
 </section>
     <section class="probootstrap-section probootstrap-section-dark">

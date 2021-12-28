@@ -107,51 +107,61 @@
 
     <?php
 /* Connexion à une base MySQL avec l'invocation de pilote */
+
 $dsn = 'mysql:dbname=piscine;host=localhost';
 $user = 'root';
 $password = '';
 $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8");
 $pdo = new PDO($dsn, $user, $password,$options); 
-$req = "select * from piscine_tab where libelle = '$lib'";
-$stmt = $pdo->prepare($req);
-$stmt->execute();
-$piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
-print_r($piscine);
+if (isset($_POST['detail'])){
+
+    $_SESSION['id'] = $_POST['id'];
+    $req = "select * from piscine_tab where id = '".$_SESSION['id']."'";
+    $stmt = $pdo->prepare($req);
+    $stmt->execute();
+    $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+}
 ?>
 
+                    <?php foreach($piscine as $p) : ?>
+                      <div class="fr-view u-align-center u-clearfix u-rich-text u-text u-text-1 u-text-1">
+          <p id="isPasted">
+            <span class="u-custom-font u-font-merriweather" style="font-weight: 700; font-size: 1.5625rem;"><?= $p['libelle']?></span>
+          </p>
+        </div>
     <section class="probootstrap-slider flexslider probootstrap-inner">
         <ul class="slides">
-            <li style="background-image: url(img/gal4.jpg);">
+            <li style="background-image: url(<?= $p['image'];?>);">
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="probootstrap-slider-text text-center">
-                                <p><img src="img/curve_white.svg" class="seperator probootstrap-animate" alt="Free HTML5 Bootstrap Template"></p>
                             </div>
                         </div>
                 </div>
             </li>
         </ul>
     </section>
-        <p class="u-align-left u-custom-font u-font-merriweather u-text u-text-2 u-text-2">31&nbsp;€<br>par personne (demi-journée)<br>👪&nbsp;​1 - 6 personnes 
+        <p class="u-align-left u-custom-font u-font-merriweather u-text u-text-2 u-text-2">prix de réservation:<br><?= $p['prix'];?>&nbsp;dt<br>nombre de personnes:<br>&nbsp;<?= $p['nb_personne']; ?> personnes
         </p>
       </div>
     <section class="u-clearfix u-section-2" id="sec-004c">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+
         <div class="u-container-style u-custom-color-2 u-expanded-width u-group u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
-            <h3 class="u-text u-text-1"> Description<br>
-            </h3>
-            <h3 class="u-text u-text-2">Règles Intérieur<br>
-            </h3>
-            <ul class="u-text u-text-3">
-              <li>regle 1</li>
-              <li>regle 2</li>
-              <li>regle 3</li>
+            <h3 class="u-text u-text-1"> Description</h3>
+            <h4 class="u-text " spellcheck="true"><?= $p['description'];?></h4>
+            <h3 class="u-text u-text-1 ">Autres informations<br></h3>
+            <ul class="u-text ">
+              <h4><li>surface : <?= $p['surface']; ?> m²</li></h4>
+              <h4><li>adresse : <?= $p['adresse']; ?></li></h4>
+              <h4><li>region : <?= $p['region']; ?></li></h4>
             </ul>
-            <h3 class="u-custom-font u-text u-text-8 u-text-font u-text-4" spellcheck="true">texte ici</h3>
-            <div class="u-border-2 u-border-palette-5-dark-2 u-container-style u-group u-group-3 u-radius-15 u-shape-round u-white u-group-2">
-              <div class="u-container-layout u-container-layout-3 u-container-layout-2">
-                <h2 class="u-custom-font u-font-merriweather u-text u-text-9 u-text-5"> Quand planifiez-vous votre réservation?&nbsp;</h2>
+
+            <div class="u-border-palette-5-dark-2   u-group-3 u-radius-15 u-shape-round u-white u-group-2">
+              <div class="u-container-layout ">
+                <h3 class="u-custom-font u-font-merriweather u-text u-text-9 u-text-5"> Quand planifiez-vous votre réservation?&nbsp;</h3>
                 <div class="u-form u-form-1 u-form-1">
                   <form action="https://nicepage.com/editor/Forms/Process" method="POST" class="u-clearfix u-form-spacing-25 u-form-vertical u-inner-form" source="email" name="form" style="padding: 24px;">
                     <input type="hidden" id="siteId" name="siteId" value="1060481">
@@ -177,9 +187,7 @@ print_r($piscine);
                       <a href="#" class="u-btn u-btn-submit u-button-style">Soumettre</a>
                       <input type="submit" value="submit" class="u-form-control-hidden">
                     </div>
-                    <div class="u-form-send-message u-form-send-success"> Je vous remercie! Votre message a été envoyé. </div>
-                    <div class="u-form-send-error u-form-send-message"> Impossible d'envoyer votre message. Veuillez corriger les erreurs puis réessayer. </div>
-                    <input type="hidden" value="" name="recaptchaResponse">
+
                   </form>
                 </div>
               </div>
@@ -192,6 +200,7 @@ print_r($piscine);
           </div>
         </div>
       </div>
+      <?php endforeach; ?>
     </section>
     
      <!-- START: footer -->
