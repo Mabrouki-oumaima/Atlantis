@@ -5,27 +5,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nos piscines</title>
+    <title>Acceuil</title>
     <meta name="description" content="Free Bootstrap Theme by uicookies.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:300,400,700|Rubik:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles-merged.css">
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/new.css">
+    <link rel="stylesheet" href="css\styles-merged.css">
+    <link rel="stylesheet" href="css\style.min.css">
+    <link rel="stylesheet" href="css\new.css">
 
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
       <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
 </head>
-<?php ob_start(); ?>
+
 <body>
 
- <!-- START: header -->
+    <!-- START: header -->
 
- <header role="banner" class="probootstrap-header">
+    <header role="banner" class="probootstrap-header">
         <!-- <div class="container"> -->
         <div class="row">
             <a href="index.html" class="probootstrap-logo visible-xs"><img src="img/logo_sm.png" class="hires" width="120" height="33" alt="Free Bootstrap Template by uicookies.com"></a>
@@ -46,8 +45,8 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">à propos</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a class="btn btn-primary" href="inscri.html" role="button">S'inscrire</a></li>
-                    <li><a class="btn btn-primary" href="login.html" role="button">Se connecter</a></li>
+                    <li><a class="btn btn-primary" id="SI" href="inscri.html" role="button">S'inscrire</a></li>
+                    <li><a class="btn btn-primary" id="SC" href="login.html" role="button">Se connecter</a></li>
                 </ul>
 
                 <div class="extra-text visible-xs">
@@ -66,7 +65,7 @@
         </div>
         <!-- </div> -->
     </header>
-    <form id="booking-form" class="booking-form" method="POST">
+    <form id="booking-form" class="booking-form" method="POST" action="search.php">
         <div class="form-group">
             <div class="form-destination">
                 <label for="destination">Region</label>
@@ -74,29 +73,27 @@
             </div>
             <div class="form-date-from form-icon">
                 <label for="date_from">Date</label>
-                <input type="date" id="date_from" class="date_from" placeholder="Pick a date" />
+                <input type="date" id="date_from" class="date_from" name="date" placeholder="Pick a date" />
                 <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
             </div>
             <div class="form-surf">
                 <label>Surface</label>
-                <input type="text" id="surf_from" class="surf_from" placeholder="100" />
+                <input type="text" id="surf_from" class="surf_from" name="surface" placeholder="100" />
                 <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
             </div>
 
             <div class="form-quantity">
                 <label for="quantity">Nombre</label>
                 <span class="modify-qty plus" onClick="Tang()"><i class="zmdi zmdi-chevron-up"></i></span>
-                <input type="number" name="quantity" id="quantity" value="0" min="0" class="nput-text qty text">
+                <input type="number" name="quantity" id="quantity" placeholder="1" class="nput-text qty text">
                 <span class="modify-qty minus" onClick="Giam()"><i class="zmdi zmdi-chevron-down"></i></span>
             </div>
             <div class="form-submit">
-                <input type="submit" id="submit" class="submit" value="rechercher" />
+                <input type="submit" id="submit" class="submit" value="rechercher" name="rechercher" />
             </div>
         </div>
     </form>
     <!-- END: header -->
-
-
         <ul class="slides">
             <li style="background-image: url(img/grey.jpg);" class="overlay">
 
@@ -124,7 +121,7 @@ $req = "select * from piscine_tab where id between 1 and 6";
 $stmt = $pdo->prepare($req);
 $stmt->execute();
 $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
-session_start();
+
 
 
 

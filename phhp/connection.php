@@ -1,15 +1,20 @@
 <?php
+function connection(){
+    $dsn = 'mysql:dbname=piscine;host=localhost';
+    $user = 'root';
+    $password = '';
+    $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8");
 
-$host="127.0.0.1"; //or 127.0.0.1*
-$database="reserv_piscine";
-$user="root";
-$password="";
-try{
-    $cnx= new PDO("mysql:host=$host;dbname=$database",$user,$password);
-    echo "connecte";
-    echo "<br>";
 
-}catch(PDOException $e){$e->getMessage();}
+    try{
+        $cnx= new PDO($dsn, $user, $password,$options);
+
+        echo "<br>";
+        return $cnx;
+    
+    }catch(PDOException $e){$e->getMessage();}
+}
+
 
 
 
