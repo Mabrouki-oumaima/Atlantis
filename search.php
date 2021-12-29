@@ -120,7 +120,7 @@ if (isset($_POST['rechercher']))
 
     if (!($_POST['Region']) && (!($_POST['surface'])) &&(!($_POST['quantity']))&&(!($_POST['date']))) {
         echo "<html><script>alert('veuillez saisir le type de recherche')</script></html>";
-        echo "<script>window.location.href='..\index.html'</script>";
+        echo "<script>window.location.href='index.html'</script>";
     } elseif (!($_POST['surface']) && ($_POST['Region']) && !($_POST['date']) && !($_POST['quantity']))
     {
         $reg = $_POST['Region'];
@@ -132,7 +132,7 @@ if (isset($_POST['rechercher']))
         if($i==0)
         {
             echo "<html><script>alert('pas de piscine dans cette region')</script></html>";
-            echo "<script>window.location.href='../index.html'</script>";
+            echo "<script>window.location.href='index.html'</script>";
         }
         else {
             $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -172,7 +172,7 @@ if (isset($_POST['rechercher']))
         if ($i==0)
         {
             echo "<html><script>alert('pas de piscine avec cette surface')</script></html>";
-            echo "<script>window.location.href='../index.html'</script>";
+            echo "<script>window.location.href='index.html'</script>";
         }
         else{
             
@@ -214,7 +214,7 @@ if (isset($_POST['rechercher']))
         if ($i==0)
         {
             echo "<html><script>alert('pas de piscine avec cette surface dans cette région')</script></html>";
-            echo "<script>window.location.href='../index.html'</script>";
+            echo "<script>window.location.href='index.html'</script>";
         }
         else{
             $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -254,7 +254,7 @@ if (isset($_POST['rechercher']))
         if ($i==0)
         {
             echo "<html><script>alert('pas de piscine veuillez resaisir votre recherche')</script></html>";
-            echo "<script>window.location.href='../index.html'</script>";
+            echo "<script>window.location.href='index.html'</script>";
         }
         else{
             $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -292,7 +292,7 @@ if (isset($_POST['rechercher']))
         if ($i==0)
         {
             echo "<html><script>alert('pas de piscine disponible dans cette région avec ce nombre')</script></html>";
-            echo "<script>window.location.href='../index.html'</script>";
+            echo "<script>window.location.href='index.html'</script>";
         }
         else{
             $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
