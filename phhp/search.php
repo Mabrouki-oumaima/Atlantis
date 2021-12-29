@@ -69,6 +69,7 @@ if (isset($_POST['rechercher']))
             echo "<html><script>alert('pas de piscine avec cette surface dans cette région')</script></html>";
             echo "<script>window.location.href='../index.html'</script>";
         }
+        //lllllllllll
         else{
             $req = $cnx->query("select * from piscine_tab where surface='$surf' and Region='$reg'");
             $piscine = $req->fetchAll(PDO::FETCH_ASSOC);
