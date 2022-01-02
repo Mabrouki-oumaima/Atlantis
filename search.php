@@ -330,7 +330,7 @@ if (isset($_POST['rechercher']))
         if ($i==0)
         {
             echo "<html><script>alert('pas de piscine dispo avec cette surface et ce nombre de personne')</script></html>";
-            echo "<script>window.location.href='../index.html'</script>";
+            echo "<script>window.location.href='index.html'</script>";
         }
         else{
             $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
