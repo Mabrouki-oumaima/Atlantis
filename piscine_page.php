@@ -163,9 +163,7 @@ if (isset($_POST['detail'])){
               <div class="u-container-layout ">
                 <h3 class="u-custom-font u-font-merriweather u-text u-text-9 u-text-5"> Quand planifiez-vous votre réservation?&nbsp;</h3>
                 <div class="u-form u-form-1 u-form-1">
-                  <form action="https://nicepage.com/editor/Forms/Process" method="POST" class="u-clearfix u-form-spacing-25 u-form-vertical u-inner-form" source="email" name="form" style="padding: 24px;">
-                    <input type="hidden" id="siteId" name="siteId" value="1060481">
-                    <input type="hidden" id="pageId" name="pageId" value="1077812">
+                  <form action="reservation.php" method="POST" class="u-clearfix u-form-spacing-25 u-form-vertical u-inner-form" source="email" name="form" style="padding: 24px;">
                     <div class="u-form-date u-form-group u-form-group-1">
                       <label for="date-c41f" class="u-form-control-hidden u-label"></label>
                       <input type="date" placeholder="MM/DD/YYYY" id="date-c41f" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
@@ -184,8 +182,7 @@ if (isset($_POST['detail'])){
                       </div>
                     </div>
                     <div class="u-align-center u-form-group u-form-submit">
-                      <a href="#" class="u-btn u-btn-submit u-button-style">Soumettre</a>
-                      <input type="submit" value="submit" class="u-form-control-hidden">
+                    <button type="submit" class="u-btn u-btn-submit u-button-style" name="detail">Réserver</button>
                     </div>
 
                   </form>

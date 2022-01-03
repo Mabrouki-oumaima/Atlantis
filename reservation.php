@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>uiCookies:Atlantis &mdash; Free Bootstrap Theme, Free Responsive Bootstrap Website Template</title>
+    <title>Nos piscines</title>
     <meta name="description" content="Free Bootstrap Theme by uicookies.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -12,66 +13,98 @@
     <link rel="stylesheet" href="css/styles-merged.css">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/new.css">
+    <link rel="stylesheet" href="css/nicepage.css" media="screen">
+<link rel="stylesheet" href="css/piscine_page.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.0.14, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i">
+        
 
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
       <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
+</head>
+<body>
 
-  <!-- START: header -->
+ <!-- START: header -->
 
-  <header role="banner" class="probootstrap-header">
-    <!-- <div class="container"> -->
-    <div class="row">
-        <a href="index.html" class="probootstrap-logo visible-xs"><img src="img/logo_sm.png" class="hires" width="120" height="33" alt="Free Bootstrap Template by uicookies.com"></a>
 
-        <a href="#" class="probootstrap-burger-menu visible-xs"><i>Menu</i></a>
-        <div class="mobile-menu-overlay"></div>
 
-        <nav role="navigation" class="probootstrap-nav hidden-xs">
-          <ul class="probootstrap-main-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="rooms.html">Our Rooms</a></li>
-            <li class="hidden-xs probootstrap-logo-center"><a href="index.html"><img src="img/logo_md.png" class="hires" width="181" height="50" alt="Free Bootstrap Template by uicookies.com"></a></li>
-            <li class="active"><a href="reservation.html">Reservation</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-          <div class="extra-text visible-xs">
-            <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
-            <h5>Connect With Us</h5>
-            <ul class="social-buttons">
-              <li><a href="#"><i class="icon-twitter"></i></a></li>
-              <li><a href="#"><i class="icon-facebook2"></i></a></li>
-              <li><a href="#"><i class="icon-instagram2"></i></a></li>
-            </ul>
-          </div>
-        </nav>
-        </div>
-    <!-- </div> -->
-  </header>
-  <!-- END: header -->
+ <header role="banner" class="probootstrap-header">
+        <!-- <div class="container"> -->
+        <div class="row">
+            <a href="index.html" class="probootstrap-logo visible-xs"><img src="img/logo_sm.png" class="hires" width="120" height="33" alt="Free Bootstrap Template by uicookies.com"></a>
 
-  <section class="probootstrap-slider flexslider probootstrap-inner">
-    <ul class="slides">
-       <li style="background-image: url(img/slider_1.jpg);" class="overlay">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-10 col-md-offset-1">
-                <div class="probootstrap-slider-text text-center">
-                  <p><img src="img/curve_white.svg" class="seperator probootstrap-animate" alt="Free HTML5 Bootstrap Template"></p>
-                  <h1 class="probootstrap-heading probootstrap-animate">Book A Room</h1>
-                  <div class="probootstrap-animate probootstrap-sub-wrap">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</div>
+            <a href="#" class="probootstrap-burger-menu visible-xs"><i>Menu</i></a>
+            <div class="mobile-menu-overlay"></div>
+
+            <nav role="navigation" class="probootstrap-nav hidden-xs">
+                <ul class="probootstrap-main-nav">
+                    <li class="hidden-xs probootstrap-logo-center">
+                        <a href="index.html"><img src="img/logo_md.png" class="hires" width="181" height="50" alt="Free Bootstrap Template by uicookies.com"></a>
+                    </li>
+                    <li><a href="index.html">Acceuil</a></li>
+
+                    <li class="active"><a href="rooms.php">Nos piscines</a></li>
+
+                    <!--li><a href="reservation.html">Reservation</a></li-->
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">à propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a class="btn btn-primary" href="inscri.html" role="button">S'inscrire</a></li>
+                    <li><a class="btn btn-primary" href="login.html" role="button">Se connecter</a></li>
+                </ul>
+
+                <div class="extra-text visible-xs">
+                    <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
+                    <h5>Connect With Us</h5>
+                    <ul class="social-buttons">
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                        <li><a href="#"><i class="icon-instagram2"></i></a></li>
+
+                    </ul>
+
                 </div>
-              </div>
+            </nav>
+
+        </div>
+        <!-- </div> -->
+    </header>
+    <form id="booking-form" class="booking-form" method="POST">
+        <div class="form-group">
+            <div class="form-destination">
+                <label for="destination">Region</label>
+                <input type="text" id="destination" name="Region" placeholder="E.Hammamet" />
             </div>
-          </div>
-        </li>
-    </ul>
-  </section>
+            <div class="form-date-from form-icon">
+                <label for="date_from">Date</label>
+                <input type="date" id="date_from" class="date_from" placeholder="Pick a date" />
+                <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+            </div>
+            <div class="form-surf">
+                <label>Surface</label>
+                <input type="text" id="surf_from" class="surf_from" placeholder="100" />
+                <!-- <span class="icon"><i class="zmdi zmdi-calendar-alt"></i></span> -->
+            </div>
+
+            <div class="form-quantity">
+                <label for="quantity">Nombre</label>
+                <span class="modify-qty plus" onClick="Tang()"><i class="zmdi zmdi-chevron-up"></i></span>
+                <input type="number" name="quantity" id="quantity" value="0" min="0" class="nput-text qty text">
+                <span class="modify-qty minus" onClick="Giam()"><i class="zmdi zmdi-chevron-down"></i></span>
+            </div>
+            <div class="form-submit">
+                <input type="submit" id="submit" class="submit" value="rechercher" />
+            </div>
+        </div>
+    </form>
+    <!-- END: header -->
+
 
   <section class="probootstrap-section">
     <div class="container">
@@ -171,32 +204,7 @@
             </div>
           </form>
         </div>
-        <div class="col-md-4">
-          <h2 class="mt0">Feedback</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          <p><a href="#" class="btn btn-primary" role="button">Send Message</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="probootstrap-half">
-    <div class="image" style="background-image: url(img/slider_2.jpg);"></div>
-    <div class="text">
-      <div class="probootstrap-animate fadeInUp probootstrap-animated">
-        <h2 class="mt0">Best 5 Star hotel</h2>
-        <p><img src="img/curve_white.svg" class="seperator" alt="Free HTML5 Bootstrap Template"></p>
-        <div class="row">
-          <div class="col-md-6">
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          </div>
-          <div class="col-md-6">
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-          </div>
-        </div>
-        <p><a href="#" class="link-with-icon white">Learn More <i class=" icon-chevron-right"></i></a></p>
-      </div>
-    </div>
+       
   </section>
 
   <!-- START: footer -->
