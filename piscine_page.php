@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
+<?php session_start();?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,21 +114,32 @@ $password = '';
 $options = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8");
 $pdo = new PDO($dsn, $user, $password,$options); 
 if (isset($_POST['detail'])){
-
     $_SESSION['id'] = $_POST['id'];
     $req = "select * from piscine_tab where id = '".$_SESSION['id']."'";
     $stmt = $pdo->prepare($req);
     $stmt->execute();
     $piscine = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    $_SESSION['user_nom']='jabnoun';
+    $_SESSION['user_prenom']='Sleheddine';
+    $req1 = "select * from utilisateur where nom = '".$_SESSION['user_nom']."' and prenom = '".$_SESSION['user_prenom']."'";
+    $stmt1 = $pdo->prepare($req1);
+    echo $req1;
+    $stmt1->execute();
+    $email = $stmt1->fetchAll(PDO::FETCH_ASSOC); 
+    foreach($email as $e):
+        $_SESSION['email']= $e['email'];
+        $_SESSION['id_user']= $e['id'];
+       endforeach;
 
 }
+
 ?>
+
 
                     <?php foreach($piscine as $p) : ?>
                       <div class="fr-view u-align-center u-clearfix u-rich-text u-text u-text-1 u-text-1">
           <p id="isPasted">
-            <span class="u-custom-font u-font-merriweather" style="font-weight: 700; font-size: 1.5625rem;"><?= $p['libelle']?></span>
+            <span class="u-custom-font u-font-merriweather" style="font-weight: 700; font-size: 1.5625rem;"><?= $p['libelle'];$_SESSION['libelle'] = $p['libelle'];?></span>
           </p>
         </div>
     <section class="probootstrap-slider flexslider probootstrap-inner">
@@ -142,8 +153,9 @@ if (isset($_POST['detail'])){
                 </div>
             </li>
         </ul>
+
     </section>
-        <p class="u-align-left u-custom-font u-font-merriweather u-text u-text-2 u-text-2">prix de réservation:<br><?= $p['prix'];?>&nbsp;dt<br>nombre de personnes:<br>&nbsp;<?= $p['nb_personne']; ?> personnes
+        <p class="u-align-left u-custom-font u-font-merriweather u-text u-text-2 u-text-2">prix de réservation:<br><?= $p['prix'];$_SESSION['prix']=$p['prix'];?>&nbsp;dt<br>nombre de personnes:<br>&nbsp;<?= $p['nb_personne']; ?> personnes
         </p>
       </div>
     <section class="u-clearfix u-section-2" id="sec-004c">
@@ -166,21 +178,21 @@ if (isset($_POST['detail'])){
                   <form action="reservation.php" method="POST" class="u-clearfix u-form-spacing-25 u-form-vertical u-inner-form" source="email" name="form" style="padding: 24px;">
                     <div class="u-form-date u-form-group u-form-group-1">
                       <label for="date-c41f" class="u-form-control-hidden u-label"></label>
-                      <input type="date" placeholder="MM/DD/YYYY" id="date-c41f" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                      <input type="date" placeholder="MM/DD/YYYY" id="date" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
                     </div>
                     <div class="u-form-group u-form-group-2 u-form-radiobutton">
                       <div class="u-form-radio-button-wrapper">
-                        <input type="radio" name="radiobutton" value="Barbecue(10D)">
-                        <label class="u-label" for="radiobutton">Barbecue(10D)</label>
+                        <input type="checkbox" id="Barbecue" name="Barbecue" value="Barbecue">
+                        <label for="Barbecue">Barbecue(10D)</label>
                         <br>
-                        <input type="radio" name="radiobutton" value="Wifi(5D)">
-                        <label class="u-label" for="radiobutton">Wifi(5D)</label>
+                        <input type="checkbox" id="Serviette" name="Serviette" value="Serviette">
+                        <label for="Serviette">serviette(10D)</label>
                         <br>
-                        <input type="radio" name="radiobutton" value="Jacuzzi/Spa(10D)">
-                        <label class="u-label" for="radiobutton">Jacuzzi/Spa(10D)</label>
+                        <input type="checkbox" id="Jacuzzi/Spa" name="Jacuzzi/Spa" value="Jacuzzi/Spa">
+                        <label for="Jacuzzi/Spa">Jacuzzi/Spa(10D)</label>
                         <br>
                       </div>
-                    </div>
+                      </div>
                     <div class="u-align-center u-form-group u-form-submit">
                     <button type="submit" class="u-btn u-btn-submit u-button-style" name="detail">Réserver</button>
                     </div>

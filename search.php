@@ -203,6 +203,7 @@ if (isset($_POST['rechercher']))
 
     elseif (($_POST['surface']) && (($_POST['Region'])) && !($_POST['date']) && !($_POST['quantity']))
     {
+        session_start();
         $surf = $_POST['surface'];
         $reg = $_POST['Region'];
         $cnx = connection();
